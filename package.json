@@ -1,0 +1,10 @@
+{
+  "name": "japanreise-2026",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/validate.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {"node": ">=20"}
+}
