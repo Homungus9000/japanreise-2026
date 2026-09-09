@@ -245,36 +245,6 @@
           "aktivität": "A-18-guide"
         },
         {
-          "verbindung": "V-2026-10-18-auto-1"
-        },
-        {
-          "aktivität": "A-18-asakusa"
-        },
-        {
-          "verbindung": "V-2026-10-18-auto-3"
-        },
-        {
-          "aktivität": "A-18-nakamise"
-        },
-        {
-          "verbindung": "V-2026-10-18-04"
-        },
-        {
-          "aktivität": "A-18-shibuya"
-        },
-        {
-          "verbindung": "V-2026-10-18-auto-7"
-        },
-        {
-          "aktivität": "A-18-harajuku"
-        },
-        {
-          "verbindung": "V-2026-10-18-auto-9"
-        },
-        {
-          "aktivität": "A-18-meiji"
-        },
-        {
           "verbindung": "V-2026-10-18-08"
         },
         {
@@ -293,16 +263,14 @@
           "aktivität": "A-18-nacht"
         }
       ],
-      "alternativen": [
-        "A-18-shinjuku"
-      ],
+      "alternativen": [],
       "weitere_verbindungen": [],
       "fruehere_wegplanung": [
         {
           "objekttyp": "ROUTE",
           "id": "R-18-01",
           "von": "H-TOKYO1",
-          "nach": "A-18-asakusa",
+          "nach": "Asakusa / Sensō-ji",
           "verkehrsmittel": null,
           "bahnhof_haltestelle": {
             "abfahrt": null,
@@ -323,8 +291,8 @@
         {
           "objekttyp": "ROUTE",
           "id": "R-18-02",
-          "von": "A-18-asakusa",
-          "nach": "A-18-nakamise",
+          "von": "Asakusa / Sensō-ji",
+          "nach": "Nakamise-Straße",
           "verkehrsmittel": null,
           "bahnhof_haltestelle": {
             "abfahrt": null,
@@ -345,8 +313,8 @@
         {
           "objekttyp": "ROUTE",
           "id": "R-18-03",
-          "von": "A-18-nakamise",
-          "nach": "A-18-shibuya",
+          "von": "Nakamise-Straße",
+          "nach": "Shibuya Crossing",
           "verkehrsmittel": null,
           "bahnhof_haltestelle": {
             "abfahrt": null,
@@ -367,8 +335,8 @@
         {
           "objekttyp": "ROUTE",
           "id": "R-18-04",
-          "von": "A-18-shibuya",
-          "nach": "A-18-harajuku",
+          "von": "Shibuya Crossing",
+          "nach": "Harajuku",
           "verkehrsmittel": null,
           "bahnhof_haltestelle": {
             "abfahrt": null,
@@ -389,8 +357,8 @@
         {
           "objekttyp": "ROUTE",
           "id": "R-18-05",
-          "von": "A-18-harajuku",
-          "nach": "A-18-meiji",
+          "von": "Harajuku",
+          "nach": "Meiji Jingu",
           "verkehrsmittel": null,
           "bahnhof_haltestelle": {
             "abfahrt": null,
@@ -411,8 +379,8 @@
         {
           "objekttyp": "ROUTE",
           "id": "R-18-06",
-          "von": "A-18-meiji",
-          "nach": "A-18-shinjuku",
+          "von": "Meiji Jingu",
+          "nach": "Shinjuku",
           "verkehrsmittel": null,
           "bahnhof_haltestelle": {
             "abfahrt": null,
@@ -433,7 +401,7 @@
         {
           "objekttyp": "ROUTE",
           "id": "R-18-07",
-          "von": "A-18-shinjuku",
+          "von": "Shinjuku",
           "nach": "A-18-licht",
           "verkehrsmittel": null,
           "bahnhof_haltestelle": {
@@ -2774,10 +2742,10 @@
       "dauer": "ganztags",
       "startzeit": null,
       "endzeit": null,
-      "reservierung": "Gebucht; Treffpunkt und Beginn offen.",
+      "reservierung": "Gebucht; Startpunkt, Endpunkt und genaue Zeiten mit dem Reisebüro bestätigen.",
       "preis": null,
       "link": null,
-      "beschreibung": "Wir entdecken Tokyo mit unserem deutschsprachigen Guide und lassen uns die Stadt aus erster Hand zeigen.",
+      "beschreibung": "Wir entdecken Tokyo mit unserem deutschsprachigen Guide: Als Stationen sind Asakusa mit Sensō-ji und Nakamise-Straße, Shibuya, Harajuku, Meiji Jingu und Shinjuku vorgeschlagen; die Route ist individuell anpassbar. Startpunkt: vorläufig Asakusa, genauer Treffpunkt und Startzeit sind mit dem Reisebüro zu prüfen. Endpunkt: vorläufig Shinjuku, genauer Abschlussort und Endzeit sind ebenfalls zu prüfen.",
       "grund": "Gebuchte Leistung als verbindlicher Bestandteil der Reise.",
       "notizen": [
         "Route individuell anpassbar. Transfers, Eintritte und Mittagessen nicht inkludiert."
@@ -2796,7 +2764,7 @@
           ]
         }
       ],
-      "tageszeit": "Vormittag",
+      "tageszeit": "Ganztags · Start- und Endzeit zu prüfen",
       "bild": {
         "url": "assets/images/01.jpg",
         "quelle": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Asakusa_Senso-ji_2021-12_ac_%282%29.jpg",
@@ -2804,186 +2772,6 @@
         "hinweis": "Beispiel- / Umgebungsmotiv: Sensō-ji in Asakusa"
       },
       "bild_alt": "Beispiel- / Umgebungsmotiv: Sensō-ji in Asakusa"
-    },
-    "A-18-asakusa": {
-      "id": "A-18-asakusa",
-      "name": "Asakusa / Sensō-ji",
-      "ort": "Tokyo",
-      "typ": "tempel_schrein",
-      "status": "geplant",
-      "priorität": "gerne",
-      "herkunft": "Reisebüro",
-      "dauer": null,
-      "startzeit": null,
-      "endzeit": null,
-      "reservierung": null,
-      "preis": null,
-      "link": null,
-      "beschreibung": "Wir erkunden Asakusa und besuchen den Sensō-ji, bevor wir uns durch die umliegenden Gassen treiben lassen.",
-      "grund": "Empfehlung aus dem Reisebüro-Plan.",
-      "notizen": [
-        "Vorgeschlagener Guide-Stopp, keine einzeln garantierte Leistung."
-      ],
-      "quellen": [
-        {
-          "quelle_id": "Q-PLAN",
-          "seiten": [
-            2
-          ]
-        }
-      ],
-      "tageszeit": null,
-      "bild": {
-        "url": "assets/images/01.jpg",
-        "quelle": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Asakusa_Senso-ji_2021-12_ac_%282%29.jpg",
-        "status": "lokale Kopie aus bisherigem Reiseplan",
-        "hinweis": "Sensō-ji in Asakusa"
-      },
-      "bild_alt": "Sensō-ji in Asakusa"
-    },
-    "A-18-nakamise": {
-      "id": "A-18-nakamise",
-      "name": "Nakamise-Straße",
-      "ort": "Tokyo",
-      "typ": "shopping",
-      "status": "geplant",
-      "priorität": "gerne",
-      "herkunft": "Reisebüro",
-      "dauer": null,
-      "startzeit": null,
-      "endzeit": null,
-      "reservierung": null,
-      "preis": null,
-      "link": null,
-      "beschreibung": "Wir stöbern an den Geschäften der Nakamise-Straße auf dem Weg zum Sensō-ji.",
-      "grund": "Empfehlung aus dem Reisebüro-Plan.",
-      "notizen": [
-        "Vorgeschlagener Guide-Stopp, keine einzeln garantierte Leistung."
-      ],
-      "quellen": [
-        {
-          "quelle_id": "Q-PLAN",
-          "seiten": [
-            2
-          ]
-        }
-      ],
-      "tageszeit": null,
-      "bild": {
-        "url": "assets/images/01.jpg",
-        "quelle": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Asakusa_Senso-ji_2021-12_ac_%282%29.jpg",
-        "status": "lokale Kopie aus bisherigem Reiseplan",
-        "hinweis": "Beispiel- / Umgebungsmotiv: Sensō-ji in Asakusa"
-      },
-      "bild_alt": "Beispiel- / Umgebungsmotiv: Sensō-ji in Asakusa"
-    },
-    "A-18-shibuya": {
-      "id": "A-18-shibuya",
-      "name": "Shibuya Crossing",
-      "ort": "Tokyo",
-      "typ": "historisches_viertel",
-      "status": "geplant",
-      "priorität": "gerne",
-      "herkunft": "Reisebüro",
-      "dauer": null,
-      "startzeit": null,
-      "endzeit": null,
-      "reservierung": null,
-      "preis": null,
-      "link": null,
-      "beschreibung": "Wir erleben die belebte Shibuya-Kreuzung und schauen uns im Viertel um.",
-      "grund": "Empfehlung aus dem Reisebüro-Plan.",
-      "notizen": [
-        "Vorgeschlagener Guide-Stopp, keine einzeln garantierte Leistung."
-      ],
-      "quellen": [
-        {
-          "quelle_id": "Q-PLAN",
-          "seiten": [
-            2
-          ]
-        }
-      ],
-      "tageszeit": null,
-      "bild": {
-        "url": "assets/images/02.jpg",
-        "quelle": "https://upload.wikimedia.org/wikipedia/commons/5/57/1_shibuya_crossing_2012.jpg",
-        "status": "lokale Kopie aus bisherigem Reiseplan",
-        "hinweis": "Umgebungsmotiv: Shibuya Crossing bei Nacht (kein Foto dieser Aktivität)"
-      },
-      "bild_alt": "Umgebungsmotiv: Shibuya Crossing bei Nacht (kein Foto dieser Aktivität)"
-    },
-    "A-18-harajuku": {
-      "id": "A-18-harajuku",
-      "name": "Harajuku",
-      "ort": "Tokyo",
-      "typ": "historisches_viertel",
-      "status": "geplant",
-      "priorität": "gerne",
-      "herkunft": "Reisebüro",
-      "dauer": null,
-      "startzeit": null,
-      "endzeit": null,
-      "reservierung": null,
-      "preis": null,
-      "link": null,
-      "beschreibung": "Wir streifen durch Harajuku und schauen nach Mode, kleinen Läden und dem besonderen Straßenleben.",
-      "grund": "Empfehlung aus dem Reisebüro-Plan.",
-      "notizen": [
-        "Vorgeschlagener Guide-Stopp, keine einzeln garantierte Leistung."
-      ],
-      "quellen": [
-        {
-          "quelle_id": "Q-PLAN",
-          "seiten": [
-            2
-          ]
-        }
-      ],
-      "tageszeit": null,
-      "bild": {
-        "url": "assets/images/02.jpg",
-        "quelle": "https://upload.wikimedia.org/wikipedia/commons/5/57/1_shibuya_crossing_2012.jpg",
-        "status": "lokale Kopie aus bisherigem Reiseplan",
-        "hinweis": "Beispiel- / Umgebungsmotiv: Shibuya Crossing bei Nacht"
-      },
-      "bild_alt": "Beispiel- / Umgebungsmotiv: Shibuya Crossing bei Nacht"
-    },
-    "A-18-meiji": {
-      "id": "A-18-meiji",
-      "name": "Meiji Jingu",
-      "ort": "Tokyo",
-      "typ": "tempel_schrein",
-      "status": "geplant",
-      "priorität": "gerne",
-      "herkunft": "Reisebüro",
-      "dauer": null,
-      "startzeit": null,
-      "endzeit": null,
-      "reservierung": null,
-      "preis": null,
-      "link": null,
-      "beschreibung": "Wir nehmen uns zwischen den lebhaften Vierteln Zeit für einen ruhigen Besuch am Meiji Jingu.",
-      "grund": "Empfehlung aus dem Reisebüro-Plan.",
-      "notizen": [
-        "Vorgeschlagener Guide-Stopp, keine einzeln garantierte Leistung."
-      ],
-      "quellen": [
-        {
-          "quelle_id": "Q-PLAN",
-          "seiten": [
-            2
-          ]
-        }
-      ],
-      "tageszeit": null,
-      "bild": {
-        "url": "assets/images/03.jpg",
-        "quelle": "https://upload.wikimedia.org/wikipedia/commons/2/21/Meiji-Jingu-Shrine-01.jpg",
-        "status": "lokale Kopie aus bisherigem Reiseplan",
-        "hinweis": "Tor am Meiji-Schrein"
-      },
-      "bild_alt": "Tor am Meiji-Schrein"
     },
     "A-18-aussicht": {
       "id": "A-18-aussicht",
@@ -5381,42 +5169,6 @@
       },
       "bild_alt": "Umgebungsmotiv (kein Foto dieser Aktivität): Tokyo Station, Marunouchi-Seite"
     },
-    "A-18-shinjuku": {
-      "id": "A-18-shinjuku",
-      "name": "Shinjuku",
-      "ort": "Tokyo",
-      "typ": "historisches_viertel",
-      "status": "geplant",
-      "priorität": "gerne",
-      "herkunft": "Reisebüro",
-      "dauer": null,
-      "startzeit": null,
-      "endzeit": null,
-      "reservierung": null,
-      "preis": null,
-      "link": null,
-      "beschreibung": "Wir erkunden Shinjuku und erleben den Wechsel zwischen Hochhäusern und belebten Straßen.",
-      "grund": "Empfehlung aus dem Reisebüro-Plan.",
-      "notizen": [
-        "Vorgeschlagener Guide-Stopp, keine einzeln garantierte Leistung."
-      ],
-      "quellen": [
-        {
-          "quelle_id": "Q-PLAN",
-          "seiten": [
-            2
-          ]
-        }
-      ],
-      "tageszeit": null,
-      "bild": {
-        "url": "assets/images/04.jpg",
-        "quelle": "https://upload.wikimedia.org/wikipedia/commons/9/96/Tokyo_Metropolitan_Government_Building_2024.jpg",
-        "status": "lokale Kopie aus bisherigem Reiseplan",
-        "hinweis": "Beispielmotiv: Tokyo Metropolitan Government Building"
-      },
-      "bild_alt": "Beispielmotiv: Tokyo Metropolitan Government Building"
-    },
     "A-19-sushi": {
       "id": "A-19-sushi",
       "name": "Privater Sushi-Kochkurs mit englischsprachigem Begleiter",
@@ -6233,33 +5985,14 @@
         }
       ]
     },
-    "V-2026-10-18-04": {
-      "id": "V-2026-10-18-04",
-      "von": "Asakusa",
-      "nach": "Shibuya",
-      "verkehrsmittel": "Tokyo Metro",
-      "bahnhof_start": "Asakusa",
-      "bahnhof_ziel": "Shibuya",
-      "linie": "Tokyo Metro",
-      "startzeit": null,
-      "ankunft": null,
-      "fahrtzeit": null,
-      "gehzeit_start": null,
-      "gehzeit_ziel": null,
-      "gesamtdauer": null,
-      "status": "zu_prüfen",
-      "notiz": "Zeiten und genaue Route noch zu prüfen.",
-      "herkunft": "Masterplan",
-      "route_link": "https://www.google.com/maps/dir/?api=1&origin=Asakusa&destination=Shibuya"
-    },
     "V-2026-10-18-08": {
       "id": "V-2026-10-18-08",
-      "von": "Harajuku / Meiji Jingu",
-      "nach": "Shinjuku",
-      "verkehrsmittel": "JR Yamanote",
-      "bahnhof_start": "Harajuku / Meiji Jingu",
-      "bahnhof_ziel": "Shinjuku",
-      "linie": "JR Yamanote",
+      "von": "Guide-Endpunkt in Shinjuku (zu prüfen)",
+      "nach": "Tokyo Metropolitan Government Building – Aussicht",
+      "verkehrsmittel": "Zu prüfen",
+      "bahnhof_start": null,
+      "bahnhof_ziel": null,
+      "linie": null,
       "startzeit": null,
       "ankunft": null,
       "fahrtzeit": null,
@@ -6267,9 +6000,11 @@
       "gehzeit_ziel": null,
       "gesamtdauer": null,
       "status": "zu_prüfen",
-      "notiz": "Zeiten und genaue Route noch zu prüfen.",
+      "notiz": "Separater Weg nach der Guide-Tour zur Aussicht; abhängig vom noch zu bestätigenden Endpunkt in Shinjuku. Route und Dauer zu prüfen.",
       "herkunft": "Masterplan",
-      "route_link": "https://www.google.com/maps/dir/?api=1&origin=Harajuku+%2F+Meiji+Jingu&destination=Shinjuku"
+      "route_link": "https://www.google.com/maps/dir/?api=1&origin=Shinjuku+Tokyo&destination=Tokyo+Metropolitan+Government+Building",
+      "von_ref": "A-18-guide",
+      "nach_ref": "A-18-aussicht"
     },
     "V-2026-10-19-02": {
       "id": "V-2026-10-19-02",
@@ -6995,94 +6730,6 @@
       "herkunft": "ChatGPT",
       "notiz": "Weg bzw. Übergang vor Ort; genaue Route und Dauer noch offen.",
       "route_link": "https://www.google.com/maps/dir/?api=1&origin=Hotel-Check-in+Tokyo&destination=Ameyoko+%2F+Okachimachi+Tokyo"
-    },
-    "V-2026-10-18-auto-1": {
-      "id": "V-2026-10-18-auto-1",
-      "von": "Private Tokyo-Tour mit deutschsprachigem Guide",
-      "nach": "Asakusa / Sensō-ji",
-      "von_ref": "A-18-guide",
-      "nach_ref": "A-18-asakusa",
-      "verkehrsmittel": null,
-      "bahnhof_start": null,
-      "bahnhof_ziel": null,
-      "linie": null,
-      "startzeit": null,
-      "ankunft": null,
-      "fahrtzeit": null,
-      "gehzeit_start": null,
-      "gehzeit_ziel": null,
-      "gesamtdauer": null,
-      "status": "zu_prüfen",
-      "optional": false,
-      "herkunft": "ChatGPT",
-      "notiz": "Weg bzw. Übergang vor Ort; genaue Route und Dauer noch offen.",
-      "route_link": "https://www.google.com/maps/dir/?api=1&origin=Private+Tokyo-Tour+mit+deutschsprachigem+Guide+Tokyo&destination=Asakusa+%2F+Sens%C5%8D-ji+Tokyo"
-    },
-    "V-2026-10-18-auto-3": {
-      "id": "V-2026-10-18-auto-3",
-      "von": "Asakusa / Sensō-ji",
-      "nach": "Nakamise-Straße",
-      "von_ref": "A-18-asakusa",
-      "nach_ref": "A-18-nakamise",
-      "verkehrsmittel": null,
-      "bahnhof_start": null,
-      "bahnhof_ziel": null,
-      "linie": null,
-      "startzeit": null,
-      "ankunft": null,
-      "fahrtzeit": null,
-      "gehzeit_start": null,
-      "gehzeit_ziel": null,
-      "gesamtdauer": null,
-      "status": "zu_prüfen",
-      "optional": false,
-      "herkunft": "ChatGPT",
-      "notiz": "Weg bzw. Übergang vor Ort; genaue Route und Dauer noch offen.",
-      "route_link": "https://www.google.com/maps/dir/?api=1&origin=Asakusa+%2F+Sens%C5%8D-ji+Tokyo&destination=Nakamise-Stra%C3%9Fe+Tokyo"
-    },
-    "V-2026-10-18-auto-7": {
-      "id": "V-2026-10-18-auto-7",
-      "von": "Shibuya Crossing",
-      "nach": "Harajuku",
-      "von_ref": "A-18-shibuya",
-      "nach_ref": "A-18-harajuku",
-      "verkehrsmittel": null,
-      "bahnhof_start": null,
-      "bahnhof_ziel": null,
-      "linie": null,
-      "startzeit": null,
-      "ankunft": null,
-      "fahrtzeit": null,
-      "gehzeit_start": null,
-      "gehzeit_ziel": null,
-      "gesamtdauer": null,
-      "status": "zu_prüfen",
-      "optional": false,
-      "herkunft": "ChatGPT",
-      "notiz": "Weg bzw. Übergang vor Ort; genaue Route und Dauer noch offen.",
-      "route_link": "https://www.google.com/maps/dir/?api=1&origin=Shibuya+Crossing+Tokyo&destination=Harajuku+Tokyo"
-    },
-    "V-2026-10-18-auto-9": {
-      "id": "V-2026-10-18-auto-9",
-      "von": "Harajuku",
-      "nach": "Meiji Jingu",
-      "von_ref": "A-18-harajuku",
-      "nach_ref": "A-18-meiji",
-      "verkehrsmittel": null,
-      "bahnhof_start": null,
-      "bahnhof_ziel": null,
-      "linie": null,
-      "startzeit": null,
-      "ankunft": null,
-      "fahrtzeit": null,
-      "gehzeit_start": null,
-      "gehzeit_ziel": null,
-      "gesamtdauer": null,
-      "status": "zu_prüfen",
-      "optional": false,
-      "herkunft": "ChatGPT",
-      "notiz": "Weg bzw. Übergang vor Ort; genaue Route und Dauer noch offen.",
-      "route_link": "https://www.google.com/maps/dir/?api=1&origin=Harajuku+Tokyo&destination=Meiji+Jingu+Tokyo"
     },
     "V-2026-10-18-auto-13": {
       "id": "V-2026-10-18-auto-13",
