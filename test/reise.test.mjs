@@ -20,10 +20,11 @@ test('Aktueller Master hat Vorrang vor dem älteren Reiseplan',()=>{
  assert.equal(m.aktivitäten['A-24-inami'].preis,'323 EUR für alle 3 Personen');
  assert.equal(m.aktivitäten['A-28-samurai'].herkunft,'Reisebüro');
 });
-test('Alle bisherigen öffentlichen To-dos bleiben wortgleich erhalten',()=>{
+test('Alle bisherigen öffentlichen To-dos bleiben erhalten; Guide-Details sind präzisiert',()=>{
  const prior=readFileSync(root+'/data/previous-master.md','utf8');
  const tasks=prior.split('## To-dos\n')[1].split('## Quellen')[0].split('\n').filter(x=>x.startsWith('- [ ] ')).map(x=>x.slice(6));
- assert.deepEqual(m.todos.map(t=>t.aufgabe),tasks);
+ assert.equal(m.todos[0].aufgabe,'Guide am 18.10.: Treffpunkt sowie genaue Start- und Endzeit beim Reisebüro bestätigen.');
+ assert.deepEqual(m.todos.slice(1).map(t=>t.aufgabe),tasks.slice(1));
 });
 test('Karten zeigen Pflichtfelder ohne Aufklappen, Optionen sind eindeutig',()=>{
  const a=m.aktivitäten['A-19-sushi'];const html=renderActivity(a,m.typen);const main=html.split('<details')[0];
@@ -49,3 +50,4 @@ test('Flugzeiten behalten Datum und Zeitzone; unbekannte Dauer bleibt offen',()=
  assert.equal(m.aktivitäten['A-16-flug'].endzeit,'2026-10-17T16:15:00+09:00');
  assert.equal(m.aktivitäten['A-01-flug'].endzeit,'2026-11-01T17:00:00+01:00');
 });
+
