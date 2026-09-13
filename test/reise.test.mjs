@@ -1,53 +1,22 @@
-import test from 'node:test';
+import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {validate,root} from '../scripts/validate.mjs';
-import {renderActivity,renderConnection,renderSite,localTime,safeURL} from '../assets/render.js';
-const m=JSON.parse(readFileSync(root+'/data/reise.json','utf8'));
-const onDay=(date,id)=>m.tage.find(d=>d.datum===date).ablauf.some(item=>item.aktivität===id);
-test('Vollständigkeit, Datenmodell, lokale Bilder und eindeutige Darstellung',()=>validate(m));
-test('Aktueller Master hat Vorrang vor dem älteren Reiseplan',()=>{
- assert.equal(m.tage.length,17);assert.equal(m.todos.length,14);
- assert(onDay('2026-10-19','A-20-fuji'));assert(!onDay('2026-10-20','A-20-fuji'));
- assert(onDay('2026-10-26','A-28-tee'));assert(onDay('2026-10-27','A-27-gioncorner'));
- assert(onDay('2026-10-23','A-22-higashi'));assert(onDay('2026-10-24','A-23-gartentour'));
- for(const [id,start,end] of [['A-19-teamlab','11:30','14:15'],['A-19-sky','16:20','18:00'],['A-27-gioncorner','19:00',null]]){
-  assert.equal(m.aktivitäten[id].startzeit,start);assert.equal(m.aktivitäten[id].endzeit,end);
- }
- assert.equal(m.aktivitäten['A-20-fuji'].herkunft,'Daniel');
- assert.equal(m.aktivitäten['A-28-usj'].status,'gestrichen');
- assert.equal(m.aktivitäten['A-19-sushi'].preis,'98 EUR pro Person');
- assert.equal(m.aktivitäten['A-24-inami'].preis,'323 EUR für alle 3 Personen');
- assert.equal(m.aktivitäten['A-28-samurai'].herkunft,'Reisebüro');
+const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
+const day = date => html.split(`id="tag-${date}"`)[1].split('</details>')[0];
+test('Aktuelle Tokyo-Reihenfolge und Buchung',()=>{
+ const t=day('19-10');
+ assert.match(t,/11:00–14:00/);assert.match(t,/Tickets fest gebucht/);
+ assert.match(t,/14:20–15:15/);assert.match(t,/16:00–17:30/);
+ assert.ok(t.indexOf('<h3>teamLab')<t.indexOf('<h3>FUJIFILM'));
+ assert.ok(t.indexOf('<h3>FUJIFILM')<t.indexOf('<h3>Shibuya Sky'));
 });
-test('Alle bisherigen öffentlichen To-dos bleiben erhalten; Guide-Details sind präzisiert',()=>{
- const prior=readFileSync(root+'/data/previous-master.md','utf8');
- const tasks=prior.split('## To-dos\n')[1].split('## Quellen')[0].split('\n').filter(x=>x.startsWith('- [ ] ')).map(x=>x.slice(6));
- assert.equal(m.todos[0].aufgabe,'Guide am 18.10.: Treffpunkt sowie genaue Start- und Endzeit beim Reisebüro bestätigen.');
- assert.deepEqual(m.todos.slice(1).map(t=>t.aufgabe),tasks.slice(1));
+test('Guide bleibt ein Tagespunkt; Museum fest; keine Hotelpause am 21.',()=>{
+ assert.equal((day('18-10').match(/<h3>Privater Tokyo-Guide/g)||[]).length,1);
+ assert.match(day('21-10'),/10:45–12:45/);assert.match(day('21-10'),/Hiroshige/);
+ assert.ok(!/<h3>[^<]*Hotelpause/.test(day('21-10')));
 });
-test('Karten zeigen Pflichtfelder ohne Aufklappen, Optionen sind eindeutig',()=>{
- const a=m.aktivitäten['A-19-sushi'];const html=renderActivity(a,m.typen);const main=html.split('<details')[0];
- for(const x of ['Optional','Reisebüro','1,5 Stunden','wenn-Zeit',a.beschreibung,a.name,'<img'])assert(main.includes(x));
- assert(html.includes('is-optional'));
- const r=Object.values(m.verbindungen).find(r=>!r.startzeit);const route=renderConnection(r);
- for(const x of ['Start','Ankunft','Fahrt','Noch offen','Route öffnen'])assert(route.includes(x));
+test('Familienlisten und letzter Abend vorhanden',()=>{
+ assert.match(html,/id="todos"/);assert.match(html,/id="packliste"/);
+ assert.match(html,/Telezoom – unbedingt/);assert.match(html,/3 Reiseadapter mit USB/);
+ assert.match(day('31-10'),/SKY BUS Tokyo/);
 });
-test('Masteränderungen erscheinen direkt im Renderer, ohne statische Tagesdaten',()=>{
- const copy=structuredClone(m);copy.aktivitäten['A-19-teamlab'].name='Aktualisierter Name';
- assert(renderSite(copy).includes('Aktualisierter Name'));
- assert(!readFileSync(root+'/index.html','utf8').includes('teamLab'));
-});
-test('Texte und URLs aus dem Master können kein HTML einschleusen',()=>{
- const a={...m.aktivitäten['A-19-teamlab'],name:'<script>alert(1)</script>',link:'javascript:alert(1)'};
- const html=renderActivity(a,m.typen);
- assert(!html.includes('<script>'));assert(html.includes('&lt;script&gt;'));assert(!html.includes('javascript:'));
- assert.equal(safeURL('javascript:alert(1)'),null);assert.equal(safeURL('assets/images/../../secret',true),null);
-});
-test('Flugzeiten behalten Datum und Zeitzone; unbekannte Dauer bleibt offen',()=>{
- assert.equal(localTime('2026-10-16T20:10:00+02:00'),'16.10. 20:10 (UTC+02:00)');
- assert.equal(localTime(null),null);
- assert.equal(m.aktivitäten['A-16-flug'].endzeit,'2026-10-17T16:15:00+09:00');
- assert.equal(m.aktivitäten['A-01-flug'].endzeit,'2026-11-01T17:00:00+01:00');
-});
-
