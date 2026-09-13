@@ -1,22 +1,20 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
-const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
-const day = date => html.split(`id="tag-${date}"`)[1].split('</details>')[0];
-test('Aktuelle Tokyo-Reihenfolge und Buchung',()=>{
- const t=day('19-10');
- assert.match(t,/11:00–14:00/);assert.match(t,/Tickets fest gebucht/);
- assert.match(t,/14:20–15:15/);assert.match(t,/16:00–17:30/);
- assert.ok(t.indexOf('<h3>teamLab')<t.indexOf('<h3>FUJIFILM'));
- assert.ok(t.indexOf('<h3>FUJIFILM')<t.indexOf('<h3>Shibuya Sky'));
+import {webcrypto} from 'node:crypto';
+import {encryptPage} from '../scripts/protect.mjs';
+async function decrypt(page,password){
+ const bytes=Buffer.from(page.match(/const encryptedPage='([^']+)'/)[1],'base64');
+ const material=await webcrypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
+ const key=await webcrypto.subtle.deriveKey({name:'PBKDF2',salt:bytes.subarray(0,16),iterations:600000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['decrypt']);
+ return new TextDecoder().decode(await webcrypto.subtle.decrypt({name:'AES-GCM',iv:bytes.subarray(16,28)},key,bytes.subarray(28)));
+}
+test('HTML bleibt verborgen; nur richtiges Passwort entschlüsselt vollständig',async()=>{
+ const html='<h1>Vertraulicher Test: Grüße aus Japan</h1>';
+ const encrypted=await encryptPage(html,'test-only-password');
+ assert.ok(!encrypted.includes(html));assert.ok(!encrypted.includes('test-only-password'));
+ assert.equal(await decrypt(encrypted,'test-only-password'),html);
+ await assert.rejects(decrypt(encrypted,'incorrect-password'));
 });
-test('Guide bleibt ein Tagespunkt; Museum fest; keine Hotelpause am 21.',()=>{
- assert.equal((day('18-10').match(/<h3>Privater Tokyo-Guide/g)||[]).length,1);
- assert.match(day('21-10'),/10:45–12:45/);assert.match(day('21-10'),/Hiroshige/);
- assert.ok(!/<h3>[^<]*Hotelpause/.test(day('21-10')));
-});
-test('Familienlisten und letzter Abend vorhanden',()=>{
- assert.match(html,/id="todos"/);assert.match(html,/id="packliste"/);
- assert.match(html,/Telezoom – unbedingt/);assert.match(html,/3 Reiseadapter mit USB/);
- assert.match(day('31-10'),/SKY BUS Tokyo/);
+test('Jede Verschlüsselung verwendet neuen Salt und IV',async()=>{
+ assert.notEqual(await encryptPage('<p>Test</p>','example'),await encryptPage('<p>Test</p>','example'));
 });

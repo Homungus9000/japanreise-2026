@@ -1,5 +1,3 @@
 # Japanreise 2026
 
-Der aktuelle Familienplan wird direkt in [index.html](index.html) gepflegt.
-
-Alle Inhalte und das CSS stehen in dieser einen Datei. Die früheren JSON- und Asset-Dateien werden nicht mehr von der Website verwendet und sind nur historische Bestände.
+Die [Familienseite](index.html) enthält den verschlüsselten Reiseplan. Änderungen werden lokal im entschlüsselten HTML vorgenommen und anschließend neu verschlüsselt. Keine Klartext-Reiseplanung im Repository ablegen.

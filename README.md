@@ -2,10 +2,10 @@
 
 Live: https://homungus9000.github.io/japanreise-2026/
 
-Die vollständige Website steht in `index.html`: alle Reiseinhalte, eingebettetes CSS und native HTML-Tageskarten (`details` / `summary`). Keine Datenbank, kein JSON als Datenquelle, keine externen Skripte, kein Build erforderlich. Änderungen direkt in der HTML vornehmen.
+Die Website besteht aus einer eigenständigen `index.html`. Der Reiseplan liegt darin verschlüsselt und wird nach Passworteingabe im Browser geöffnet. Keine Datenbank, keine externe Datenquelle, keine Passwortübertragung oder dauerhafte Speicherung. Nach Neuladen ist der Zugang wieder gesperrt.
 
-`npm test` und `npm run build` prüfen die Seite; sie generieren keine Inhalte. GitHub Pages veröffentlicht die Wurzel von `main`.
+Verschlüsselung: AES-256-GCM, PBKDF2-SHA-256 mit 600.000 Iterationen, zufälligem Salt und IV. Ein kurzes Passwort schützt nur begrenzt vor systematischem Durchprobieren; es gibt bei statischem Hosting keine serverseitige Zugriffskontrolle.
 
-Die älteren Dateien in `data/` und `assets/` sind nur noch historische Bestände und werden von der Familienseite nicht geladen. Sie sind keine aktuelle Planungsquelle.
+Änderungen: Den HTML-Reiseplan ausschließlich lokal außerhalb des Repositorys bearbeiten. Mit `node scripts/protect.mjs /pfad/zur/lokalen/index.html` neu verschlüsseln; das Passwort über Standardeingabe übergeben. Niemals Passwort oder entschlüsselte Reiseinhalte committen. GitHub Pages veröffentlicht die Wurzel von `main`.
 
-Buchungen und Wunschzeiten klar auseinanderhalten. Kartenlinks zeigen entweder einen Ort oder genau eine Verbindung mit Verkehrsmittel. Checkboxen speichern keine Daten; sie dienen nur zum lokalen Abhaken. Für Ausdrucke alle gewünschten Tageskarten öffnen.
+`npm test` prüft Verschlüsselung und falsche Passwörter; `npm run build` prüft die geschützte Datei. Ältere Klartext-Daten wurden aus dem aktuellen Stand entfernt. Bereits veröffentlichte Kopien und die Git-Historie sind dadurch nicht nachträglich geschützt.
