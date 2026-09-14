@@ -8,4 +8,4 @@ Verschlüsselung: AES-256-GCM, PBKDF2-SHA-256 mit 600.000 Iterationen, zufällig
 
 Änderungen: Den HTML-Reiseplan ausschließlich lokal außerhalb des Repositorys bearbeiten. Mit `node scripts/protect.mjs /pfad/zur/lokalen/index.html` neu verschlüsseln; das Passwort über Standardeingabe übergeben. Niemals Passwort oder entschlüsselte Reiseinhalte committen. GitHub Pages veröffentlicht die Wurzel von `main`.
 
-`npm test` prüft Verschlüsselung und falsche Passwörter; `npm run build` prüft die geschützte Datei. Ältere Klartext-Daten wurden aus dem aktuellen Stand entfernt. Bereits veröffentlichte Kopien und die Git-Historie sind dadurch nicht nachträglich geschützt.
+`npm test` prüft Verschlüsselung und falsche Passwörter; `npm run build` prüft die geschützte Datei. Alte Seiten, Klartextdaten und nicht mehr verwendete Bild-Assets werden aus dem Veröffentlichungsstand entfernt. Bereits veröffentlichte Kopien und die Git-Historie sind dadurch nicht nachträglich geschützt.
