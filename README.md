@@ -1,13 +1,24 @@
-# Japanreise 2026 – Familienseite
+# Japanreise 2026 – geschützte Familienseite
 
 Live: https://homungus9000.github.io/japanreise-2026/
 
-Die Website besteht aus einer eigenständigen `index.html`. Der Reiseplan liegt darin verschlüsselt und wird nach Passworteingabe im Browser geöffnet. Keine Datenbank, keine externe Datenquelle, keine Passwortübertragung oder dauerhafte Speicherung. Nach Neuladen ist der Zugang wieder gesperrt.
+Dieses öffentliche Repository ist das Veröffentlichungsziel. `index.html` enthält den verschlüsselten Reiseplan und wird nach Passworteingabe im Browser geöffnet. Das Passwort wird weder übertragen noch dauerhaft gespeichert.
 
-To-dos und Packliste zeigen ausschließlich feste Statusanzeigen: offen oder erledigt. Auf der Website kann niemand Punkte abhaken. Statusänderungen erfolgen auf Wunsch im Chat und werden anschließend veröffentlicht.
+## Inhalte ändern
 
-Verschlüsselung: AES-256-GCM, PBKDF2-SHA-256 mit 600.000 Iterationen, zufälligem Salt und IV. Ein kurzes Passwort schützt nur begrenzt vor systematischem Durchprobieren; es gibt bei statischem Hosting keine serverseitige Zugriffskontrolle.
+Die einzige aktive Inhaltsquelle liegt im **privaten** Repository [Homungus9000/japanreise-2026-source](https://github.com/Homungus9000/japanreise-2026-source):
 
-Änderungen: Den HTML-Reiseplan ausschließlich lokal außerhalb des Repositorys bearbeiten. Mit `node scripts/protect.mjs /pfad/zur/lokalen/index.html` neu verschlüsseln; das Passwort über Standardeingabe übergeben. Niemals Passwort oder entschlüsselte Reiseinhalte committen. GitHub Pages veröffentlicht die Wurzel von `main`.
+- `Japanreise_2026_MASTER.md`: Reiseplan, Texte, Zeiten, Links, To-dos und Packliste.
+- `assets/`: Bilder und QR-Codes.
+- `template.html`: Layout.
+- `build.py`: deterministischer Generator.
 
-`npm test` prüft Verschlüsselung und falsche Passwörter; `npm run build` prüft die geschützte Datei. Alte Seiten, Klartextdaten und nicht mehr verwendete Bild-Assets werden aus dem Veröffentlichungsstand entfernt. Bereits veröffentlichte Kopien und die Git-Historie sind dadurch nicht nachträglich geschützt.
+Hier **keine Klartext-Reiseinhalte, Masterdateien, Bilder oder Passwörter hochladen**. `index.html` nicht manuell bearbeiten. Kleine Inhaltsänderungen gehören ausschließlich in den passenden privaten Master-Abschnitt bzw. in private Assets.
+
+Die GitHub Action im privaten Repository prüft Änderungen und kann anschließend ausschließlich die verschlüsselte `index.html` hier aktualisieren. Zur einmaligen Aktivierung sind die Secrets und die Freigabevariable gemäß der [privaten Anleitung](https://github.com/Homungus9000/japanreise-2026-source#einmalige-aktivierung-der-veröffentlichung) erforderlich. GitHub Pages veröffentlicht weiterhin `main` → `/ (root)`; ein automatischer Push mit dem Deploy-Key löst das bestehende Pages-Deployment aus.
+
+## Schutz und Prüfungen
+
+AES-256-GCM, PBKDF2-SHA-256 mit 600.000 Iterationen, zufälligem Salt und IV. Kurze Passwörter können systematisch durchprobiert werden; statisches Hosting bietet keine serverseitige Zugriffskontrolle. Alte bereits veröffentlichte Kopien und frühere Git-Historie werden nicht rückwirkend geschützt.
+
+`npm test` prüft die Verschlüsselung einschließlich falscher Passwörter. `npm run build` prüft die geschützte Veröffentlichungsdatei. To-dos und Packliste zeigen feste Statusanzeigen; Änderungen erfolgen in der privaten Masterdatei.
