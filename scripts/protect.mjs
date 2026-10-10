@@ -16,6 +16,15 @@ export async function encryptPage(html,password) {
 <script>
 'use strict';
 const encryptedPage='${payload}';
+const sessionKey='japanreise-2026-unlocked';
+function openPlan(html){
+ try{sessionStorage.setItem(sessionKey,JSON.stringify({version:encryptedPage,html}));}catch{}
+ document.open();document.write(html);document.close();
+}
+try{
+ const saved=JSON.parse(sessionStorage.getItem(sessionKey));
+ if(saved?.version===encryptedPage&&typeof saved.html==='string'){openPlan(saved.html);}
+}catch{}
 const form=document.getElementById('unlock-form');
 const field=document.getElementById('password');
 const button=form.querySelector('button');
@@ -31,7 +40,7 @@ form.addEventListener('submit',async(event)=>{
   const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:bytes.slice(16,28)},key,bytes.slice(28));
   field.value='';
   const html=new TextDecoder().decode(plain);
-  document.open();document.write(html);document.close();
+  openPlan(html);
  }catch{
   message.textContent='Das Passwort stimmt nicht. Bitte erneut versuchen.';
   field.value='';field.focus();button.disabled=false;
