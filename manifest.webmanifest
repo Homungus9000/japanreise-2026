@@ -1,0 +1,19 @@
+{
+  "name": "Japanreise 2026",
+  "short_name": "Japanreise",
+  "description": "Geschützter Reiseplan für Japan 2026.",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f3ed",
+  "theme_color": "#f6f3ed",
+  "icons": [
+    {
+      "src": "japanreise-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
