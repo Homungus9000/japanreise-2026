@@ -16,15 +16,9 @@ export async function encryptPage(html,password) {
 <script>
 'use strict';
 const encryptedPage='${payload}';
-const sessionKey='japanreise-2026-unlocked';
 function openPlan(html){
- try{sessionStorage.setItem(sessionKey,JSON.stringify({version:encryptedPage,html}));}catch{}
  document.open();document.write(html);document.close();
 }
-try{
- const saved=JSON.parse(sessionStorage.getItem(sessionKey));
- if(saved?.version===encryptedPage&&typeof saved.html==='string'){openPlan(saved.html);}
-}catch{}
 const form=document.getElementById('unlock-form');
 const field=document.getElementById('password');
 const button=form.querySelector('button');
